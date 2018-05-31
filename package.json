@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/html_server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd src && node http_server.js"
   },
   "repository": {
     "type": "git",
