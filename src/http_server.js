@@ -4,8 +4,14 @@ const bot = new smarketbot('telegram_bot/token');
 
 
 http.createServer(function (request, response) {
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.end('Hello World\n');
+    if (request.method == 'POST') {
+        response.writeHead(200, {'Content-Type': 'text/plain'});
+        response.end('Hello Post\n');
+    }
+    else {
+        response.writeHead(200, {'Content-Type': 'text/plain'});
+        response.end('Hello World\n');
+    }
 }).listen(8081);
 
 // Console will print the message
