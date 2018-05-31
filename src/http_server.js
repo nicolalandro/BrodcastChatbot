@@ -1,8 +1,7 @@
 const http = require("http");
+var CryptoJS = require("crypto-js");
 const smarketbot = require('./telegram_bot/telegram_bot');
 const bot = new smarketbot('telegram_bot/token');
-
-
 const server = http.createServer();
 
 server.on('request', (request, response) => {
@@ -16,7 +15,11 @@ server.on('request', (request, response) => {
             body.push(chunk);
         }).on('end', () => {
             body = Buffer.concat(body).toString();
-            bot.brodcastMessage(body);
+            let bytes = CryptoJS.AES.decrypt(body.toString(), 'password');
+            let plaintext = bytes.toString(CryptoJS.enc.Utf8);
+            if(plaintext !== '') {
+                bot.brodcastMessage(plaintext);
+            }
         });
         response.writeHead(200, {'Content-Type': 'text/plain'});
         response.end('Done\n');

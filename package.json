@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/nicolalandro/BrodcastChatbot#readme",
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "node-telegram-bot-api": "^0.30.0"
   }
 }
