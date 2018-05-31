@@ -11,11 +11,11 @@ class smarketbot {
             console.error('The bot can not be created without token');
         }
         else{
-            let token = fs.readFileSync(tokenPath).toString();
+            let token = fs.readFileSync(tokenPath).toString().split('\n')[0];
             let options = {
                 port: 443,
                 polling: true
-            }
+            };
             this.bot = new TelegramBot(token, options);
             this.arrayOfChat = [];
             this.setUpSubscribeAction();
