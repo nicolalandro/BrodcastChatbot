@@ -6,8 +6,8 @@ const bot = new smarketbot('telegram_bot/token');
 const server = http.createServer();
 
 server.on('request', (request, response) => {
-    const { headers, method, url } = request;
-    console.log(`[${method}] url: ${url}, user_agent: ${headers['user-agent']}`);
+    const {headers, method, url} = request;
+    console.log(`[${method}] \n\turl: ${url}, \n\tuser_agent: ${headers['user-agent']}, \n\tremote_address: ${response.socket.remoteAddress}`);
     if (method == 'POST') {
         let body = [];
         request.on('error', (err) => {
