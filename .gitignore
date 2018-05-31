@@ -1,2 +1,4 @@
 .idea
-telegram_bot/token
+src/telegram_bot/token
+package-lock.json
+node_modules
