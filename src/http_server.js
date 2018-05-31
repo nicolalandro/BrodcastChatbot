@@ -7,6 +7,7 @@ const server = http.createServer();
 
 server.on('request', (request, response) => {
     const { headers, method, url } = request;
+    console.log(`[${method}] ${url}`);
     if (method == 'POST') {
         let body = [];
         request.on('error', (err) => {
