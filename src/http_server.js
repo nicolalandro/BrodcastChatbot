@@ -7,7 +7,7 @@ const server = http.createServer();
 
 server.on('request', (request, response) => {
     const { headers, method, url } = request;
-    console.log(`[${method}] ${url}`);
+    console.log(`[${method}] url: ${url}, user_agent: ${headers['user-agent']}`);
     if (method == 'POST') {
         let body = [];
         request.on('error', (err) => {
